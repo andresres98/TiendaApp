@@ -31,11 +31,35 @@ public class ProductoService {
 
 
     }
-    public static void listarProductos(){}
+    public static void listarProductos(){
+        ProductoDao.listarProductosDB();
+    }
 
-    public static void modificarProductos(){}
+    public static void modificarProductos(){
+        System.out.println("Indique para modificar: 1: Nombre " +
+                "2:Descripcion " +
+                "3: Precio " +
+                "4: Costo " +
+                "5: Cantidad ");
+        int opc = sc.nextInt();
+        switch (opc){
+            case 1:
+                System.out.println("Modificar nombre");
+                System.out.println("Ingrese el nuevo valor");
+                String nombre = sc.next();
+                System.out.println("Indique el id del producto a actualizar");
+                int id = sc.nextInt();
+                Producto update = new Producto();
+                update.setNombre(nombre);
 
-    public static void borrarProducto(){}
+        }
+    }
+
+    public static void borrarProducto(){
+        System.out.println("Indique el id del producto a borrar");
+        int idProducto = sc.nextInt();
+        ProductoDao.borrarProductoDB(idProducto);
+    }
 
 
 
